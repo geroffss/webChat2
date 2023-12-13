@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anonymous Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Include necessary CSS and other head elements -->
+</head>
+<body class="flex justify-center items-center h-screen bg-gray-100">
+  <div class="bg-white p-8 rounded shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Anonymous Login</h2>
+    <form id="loginForm" class="flex flex-col gap-4">
+      <input type="text" id="usernameInput" class="border rounded-md py-2 px-3" placeholder="Enter Username" required>
+      <button type="button" id="loginButton" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">Login</button>
+      
+    </form>
+   
+  </div>
+  
+  <script>
+    document.getElementById('loginButton').addEventListener('click', function () {
+      var username = document.getElementById('usernameInput').value;
+      if (username) {
+        localStorage.setItem('username', username); // Save username to local storage
+        window.location.href = 'chat.html'; // Redirect to chat.html
+      }
+    });
+  </script>
+</body>
+</html>
