@@ -10,7 +10,9 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\"",
-    "make-win": "electron-packager . webchat2 --platform=win32 --arch=x64"
+    "make-win": "electron-packager . webchat2 --platform=win32 --arch=x64",
+    "build": "electron-builder build --mac --win --publish never",
+"deploy": "electron-builder build --mac --win --publish always"
   },
   "keywords": [],
   "author": {
@@ -20,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^6.1.7",
     "firebase": "^10.7.1",
     "update-electron-app": "^3.0.0"
   },
@@ -31,11 +34,12 @@
     "@electron-forge/maker-zip": "^7.2.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
     "@electron-forge/publisher-github": "^7.2.0",
-    "electron": "28.0.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
     "electron-installer-windows": "^3.0.0",
     "electron-wix-msi": "^5.0.0",
     "tailwindcss": "^3.3.6",
-    "uaup-js": "latest"
+    "uaup-js": "^0.0.22"
   },
   "config": {
     "forge": {

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Anonymous Login</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
 
   <!-- Include necessary CSS and other head elements -->
 </head>
@@ -15,7 +16,15 @@
       <button type="button" id="loginButton" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">Login</button>
       
     </form>
-   
+    <div id="notification" class="hidden">
+    <p id="message"></p>
+    <button id="close-button" onClick="closeNotification()">
+      Close
+    </button>
+    <button id="restart-button" onClick="restartApp()" class="hidden">
+      Restart
+    </button>
+  </div>
   </div>
   <script>
     document.getElementById('loginButton').addEventListener('click', function () {
@@ -25,6 +34,32 @@
         window.location.href = 'chat.html'; // Redirect to chat.html
       }
     });
+
+    const notification = document.getElementById('notification');
+const message = document.getElementById('message');
+const restartButton = document.getElementById('restart-button');
+ipcRenderer.on('update_available', () => {
+  ipcRenderer.removeAllListeners('update_available');
+  message.innerText = 'A new update is available. Downloading now...';
+  notification.classList.remove('hidden');
+});
+ipcRenderer.on('update_downloaded', () => {
+  ipcRenderer.removeAllListeners('update_downloaded');
+  message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+  restartButton.classList.remove('hidden');
+  notification.classList.remove('hidden');
+});
+
+function closeNotification() {
+  notification.classList.add('hidden');
+}
+function restartApp() {
+  ipcRenderer.send('restart_app');
+}
+
+ipcMain.on('restart_app', () => {
+  autoUpdater.quitAndInstall();
+});
   </script>
 </body>
 </html>
