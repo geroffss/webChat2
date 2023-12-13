@@ -12,13 +12,10 @@
     "lint": "echo \"No linting configured\"",
     "make-win": "electron-packager . webchat2 --platform=win32 --arch=x64",
     "build": "electron-builder build --mac --win --publish never",
-"deploy": "electron-builder build --mac --win --publish always"
+    "deploy": "electron-builder build --mac --win --publish always"
   },
   "keywords": [],
-  "author": {
-    "name": "Nagyosy Gero",
-    "email": "nagyosyg@gmail.com"
-  },
+  "author": "Nagyosy Gero <nagyosyg@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
@@ -46,5 +43,13 @@
       "makers": [],
       "publishers": []
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geroffss/webChat2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/geroffss/webChat2/issues"
+  },
+  "homepage": "https://github.com/geroffss/webChat2#readme"
 }
