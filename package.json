@@ -9,7 +9,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "make-win": "electron-packager . webchat2 --platform=win32 --arch=x64"
   },
   "keywords": [],
   "author": {
@@ -33,7 +34,8 @@
     "electron": "28.0.0",
     "electron-installer-windows": "^3.0.0",
     "electron-wix-msi": "^5.0.0",
-    "tailwindcss": "^3.3.6"
+    "tailwindcss": "^3.3.6",
+    "uaup-js": "latest"
   },
   "config": {
     "forge": {

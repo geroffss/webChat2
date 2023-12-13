@@ -11,17 +11,22 @@
 
 <body>
 
-<section class="flex flex-col items-center justify-center min-h-screen">
-  <div class="bg-white p-8 rounded shadow-md w-150 items-center">
+<section class="flex flex-col items-center justify-center min-h-screen bg-gray-700">
+  <div class="bg-white p-8 rounded shadow-md items-center">
     <h2 class="text-2xl font-bold mb-4">Chatbox</h2>
     <div id="messages" class="mb-4 h-48 overflow-y-auto"></div>
-    <form id="send-message" class="flex items-center">
-      <input type="text" id="chat-txt" class="border rounded-l-md py-2 px-3 flex-grow" placeholder="Type a message..." required>
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition-colors duration-300">Send</button>
-      
-      <div>
-        <a href="index.html" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300 mt-4">back</a>
+    <form id="send-message" class="flex items-center flex-col">
+      <div class="flex items-center flex-col gap-4">
+        <div class="">
+          <input type="text" id="chat-txt" class="border rounded-l-md py-2 px-3 flex-grow" placeholder="Type a message..." required>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition-colors duration-300">Send</button>
+        </div>
+        <div>
+          <a href="index.html" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300 mt-4">back</a>
+        </div>
+
       </div>
+      
     </form>
   </div>
 
